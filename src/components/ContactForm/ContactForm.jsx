@@ -5,7 +5,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import css from "./ContactForm.module.css";
 
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()

@@ -5,7 +5,7 @@ import { IoPerson } from "react-icons/io5";
 
 import css from "./Contact.module.css";
 
-import { deleteContact } from "../../redux/contactsOps";
+import { deleteContact } from "../../redux/contacts/operations";
 
 function Contact({ contact }) {
   const dispatch = useDispatch();
