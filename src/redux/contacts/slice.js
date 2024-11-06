@@ -18,6 +18,11 @@ const slice = createSlice({
     loading: false,
     error: null,
   },
+  reducers: {
+    userLogout: (state) => {
+      state.items = [];
+    },
+  },
 
   extraReducers: (builder) => {
     builder
@@ -49,3 +54,5 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
+
+export const { userLogout } = slice.actions;

@@ -32,12 +32,27 @@ export const login = createAsyncThunk("auth/login", async (user, thunkAPI) => {
   }
 });
 
-export const logout = createAsyncThunk(
-  "auth/logout",
-  async (user, thunkAPI) => {
+export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+  try {
+    await axios.post("/users/logout");
+    clearAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    if (state.auth.token === null) {
+      return thunkAPI.rejectWithValue("Unable to fetch user");
+    }
+
     try {
-      await axios.post("/users/logout", user);
-      clearAuthHeader();
+      setAuthHeader(state.auth.token);
+      const { data } = await axios.get("/users/current");
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
