@@ -3,9 +3,12 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
+import { MdOutlineContactPhone } from "react-icons/md";
+
 import css from "./ContactForm.module.css";
 
 import { addContact } from "../../redux/contacts/operations";
+import toast from "react-hot-toast";
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -24,7 +27,12 @@ function ContactForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
+    dispatch(addContact(values)).then(() => {
+      toast.success("Contact added successfully!", {
+        icon: <MdOutlineContactPhone size={30} />,
+        position: "top-right",
+      });
+    });
     actions.resetForm();
   };
 

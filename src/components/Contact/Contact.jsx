@@ -1,7 +1,9 @@
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 import { FaPhone } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
+import { MdDeleteOutline } from "react-icons/md";
 
 import css from "./Contact.module.css";
 
@@ -11,7 +13,34 @@ function Contact({ contact }) {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(deleteContact(contact.id));
+    toast(
+      (t) => (
+        <div>
+          <p>
+            Do you really want to delete <b>{contact.name}</b>?
+          </p>
+          <button
+            onClick={() => {
+              dispatch(deleteContact(contact.id)).then(() => {
+                toast.success("Successfully deleted!", {
+                  icon: <MdDeleteOutline size={30} />,
+                  position: "top-right",
+                });
+              });
+              toast.dismiss(t.id);
+            }}
+          >
+            Yes
+          </button>
+          <button onClick={() => toast.dismiss(t.id)}>No</button>
+        </div>
+      ),
+      {
+        id: "clipboard",
+        position: "top-center",
+        duration: Infinity,
+      }
+    );
   };
 
   return (

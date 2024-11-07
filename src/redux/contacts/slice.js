@@ -19,7 +19,7 @@ const slice = createSlice({
     error: null,
   },
   reducers: {
-    userLogout: (state) => {
+    resetContacts: (state) => {
       state.items = [];
     },
   },
@@ -55,4 +55,4 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { userLogout } = slice.actions;
+export const { resetContacts } = slice.actions;

@@ -9,6 +9,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import ContactList from "../../components/ContactList/ContactList";
 
 import css from "./ContactsPage.module.css";
+import { Toaster } from "react-hot-toast";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const ContactsPage = () => {
 
   return (
     <>
+      <Toaster />
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
