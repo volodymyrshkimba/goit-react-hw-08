@@ -1,18 +1,23 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
 import { FaPhone } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
 import { MdDeleteOutline } from "react-icons/md";
 
+import EditForm from "../EditForm/EditForm";
+
 import css from "./Contact.module.css";
 
 import { deleteContact } from "../../redux/contacts/operations";
+import { isUpdatingContact } from "../../redux/contacts/slice";
+import { selectisUpdating } from "../../redux/contacts/selectors";
 
 function Contact({ contact }) {
   const dispatch = useDispatch();
+  const updatingContact = useSelector(selectisUpdating);
 
-  const handleClick = () => {
+  const handleDeleteClick = () => {
     toast(
       (t) => (
         <div>
@@ -43,21 +48,44 @@ function Contact({ contact }) {
     );
   };
 
+  const handleUpdateClick = () => {
+    dispatch(isUpdatingContact(contact));
+  };
+
   return (
-    <div className={css.contact}>
-      <div>
-        <p>
-          <FaPhone />
-          {contact.name}
-        </p>
-        <p>
-          <IoPerson />
-          {contact.number}
-        </p>
-      </div>
-      <button className={css.button} type="button" onClick={handleClick}>
-        Delete
-      </button>
+    <div>
+      {updatingContact !== null && updatingContact.id === contact.id ? (
+        <EditForm contact={contact} />
+      ) : (
+        <div className={css.contact}>
+          <div>
+            <p>
+              <IoPerson />
+              {contact.name}
+            </p>
+            <p>
+              <FaPhone />
+              {contact.number}
+            </p>
+          </div>
+          <div className={css.btnWrapper}>
+            <button
+              className={css.button}
+              type="button"
+              onClick={handleUpdateClick}
+            >
+              Edit
+            </button>
+            <button
+              className={css.button}
+              type="button"
+              onClick={handleDeleteClick}
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

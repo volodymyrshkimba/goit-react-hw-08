@@ -1,4 +1,4 @@
-.contact {
+.form {
   width: 400px;
   padding: 5px 10px;
   border: 1px solid black;
@@ -12,13 +12,16 @@
   padding: 5px 5px;
 }
 
-.contact p {
+.form p {
   display: flex;
   align-items: center;
   gap: 5px;
+  position: relative;
 }
 
-.btnWrapper {
-  display: flex;
-  gap: 5px;
+.errorMessage {
+  color: rgb(197, 90, 90);
+  position: absolute;
+  right: 5px;
+  font-size: 14px;
 }
