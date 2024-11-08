@@ -25,7 +25,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       {isRefreshing ? (
         <p>Refreshing...</p>
       ) : (
@@ -62,7 +62,7 @@ function App() {
           </Routes>
         </Layout>
       )}
-    </div>
+    </>
   );
 }
 

@@ -1,0 +1,21 @@
+.link {
+  text-align: center;
+  display: inline-block;
+  padding: 10px 10px;
+  border: 1px solid #357abd;
+  border-radius: 3px;
+  gap: 5px;
+  background-color: #ffffff;
+  color: #357abd;
+  transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
+  font-size: 18px;
+}
+
+.link:not(:last-of-type) {
+  margin-right: 5px;
+}
+
+.link:hover {
+  background-color: #1f4d78;
+  color: #ffffff;
+}

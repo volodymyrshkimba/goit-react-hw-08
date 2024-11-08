@@ -27,6 +27,7 @@ const slice = createSlice({
   reducers: {
     resetContacts: (state) => {
       state.items = [];
+      state.isUpdating = null;
     },
     isUpdatingContact: (state, action) => {
       state.isUpdating = action.payload;

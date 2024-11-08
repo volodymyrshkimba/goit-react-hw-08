@@ -21,14 +21,14 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div>
       <Toaster />
-      <h1>Phonebook</h1>
+      <h1 className={css.title}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
       {loading && <div className={css.loader}>LOADING...</div>}
       {!error ? <ContactList /> : <div>ERROR</div>}
-    </>
+    </div>
   );
 };
 

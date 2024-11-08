@@ -44,53 +44,39 @@ const EditForm = ({ contact }) => {
       onSubmit={handleSubmit}
       validationSchema={contactSchema}
     >
-      {() => {
-        return (
-          <Form className={css.form}>
-            <div>
-              <p>
-                <IoPerson />
-                <Field
-                  type="text"
-                  name="name"
-                  placeholder="enter name"
-                  // value={contact.name}
-                />
-                <ErrorMessage
-                  className={css.errorMessage}
-                  name="name"
-                  component="span"
-                />
-              </p>
-              <p>
-                <FaPhone />
-                <Field
-                  type="text"
-                  name="number"
-                  placeholder="enter number"
-                  // value={contact.number}
-                />
-                <ErrorMessage
-                  className={css.errorMessage}
-                  name="number"
-                  component="span"
-                />
-              </p>
-            </div>
+      <Form className={css.form}>
+        <div>
+          <p>
+            <IoPerson />
+            <Field type="text" name="name" placeholder="enter name" />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="name"
+              component="span"
+            />
+          </p>
+          <p>
+            <FaPhone />
+            <Field type="text" name="number" placeholder="enter number" />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="number"
+              component="span"
+            />
+          </p>
+        </div>
 
-            <button className={css.button} type="submit">
-              Confirm
-            </button>
-            <button
-              className={css.button}
-              type="button"
-              onClick={handleDiscardClick}
-            >
-              Discard
-            </button>
-          </Form>
-        );
-      }}
+        <button className={css.button} type="submit">
+          Confirm
+        </button>
+        <button
+          className={css.button}
+          type="button"
+          onClick={handleDiscardClick}
+        >
+          Discard
+        </button>
+      </Form>
     </Formik>
   );
 };
