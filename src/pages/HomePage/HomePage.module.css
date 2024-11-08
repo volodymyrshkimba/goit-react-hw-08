@@ -1,0 +1,55 @@
+.pageWrapper {
+  padding-top: 30px;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  color: aliceblue;
+  font-size: 50px;
+  font-weight: 100;
+  margin-bottom: 80px;
+}
+
+.titleLogo {
+  font-size: 60px;
+  font-weight: bold;
+  color: #357abd;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.descr {
+  color: #ffffff;
+  max-width: 500px;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 120px;
+}
+.list {
+  color: #ffffff;
+  display: flex;
+  gap: 20px;
+}
+
+.list li {
+  padding: 20px;
+  border: 1px solid #357abd;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  position: relative;
+}
+
+.itemIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+}
