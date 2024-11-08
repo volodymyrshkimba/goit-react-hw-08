@@ -1,5 +1,7 @@
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
+import * as Yup from "yup";
+
 import { register } from "../../redux/auth/operations";
 
 import css from "./RegistrationForm.module.css";
@@ -12,6 +14,15 @@ const RegistrationForm = () => {
     actions.resetForm();
   };
 
+  const registerSchema = Yup.object({
+    name: Yup.string()
+      .min(2, "At least 2 characters")
+      .max(20, "Max 20 characters")
+      .required("required"),
+    email: Yup.string().email("Invalid email address").required("required"),
+    password: Yup.string().min(8, "At least 8 characters").required("required"),
+  });
+
   return (
     <div className={css.pageWrapper}>
       <Formik
@@ -21,21 +32,43 @@ const RegistrationForm = () => {
           password: "",
         }}
         onSubmit={handleSubmit}
+        validationSchema={registerSchema}
       >
         <Form className={css.form}>
           <label>
             <span>Username</span>
-            <Field type="text" name="name" />
+            <Field type="text" name="name" placeholder="johndoe123" />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="name"
+              component="span"
+            />
           </label>
           <label>
             <span>Email</span>
-            <Field type="email" name="email" />
+            <Field
+              type="email"
+              name="email"
+              placeholder="johndoe@example.com"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="email"
+              component="span"
+            />
           </label>
           <label>
             <span>Password</span>
-            <Field type="password" name="password" />
+            <Field type="password" name="password" placeholder="********" />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="password"
+              component="span"
+            />
           </label>
-          <button type="submit">Register</button>
+          <button className={css.btn} type="submit">
+            Sign Up
+          </button>
         </Form>
       </Formik>
     </div>
