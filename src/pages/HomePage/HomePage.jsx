@@ -1,6 +1,5 @@
-import { MdAccountBox } from "react-icons/md";
-import { MdAddBox } from "react-icons/md";
-import { BsFillFilterSquareFill } from "react-icons/bs";
+import { MdAccountBox, MdAddBox } from "react-icons/md";
+import { BsFilterSquareFill, BsFillSave2Fill } from "react-icons/bs";
 
 import css from "./HomePage.module.css";
 
@@ -18,23 +17,31 @@ const HomePage = () => {
         </p>
         <ul className={css.list}>
           <li>
-            <MdAccountBox className={css.itemIcon} />
-            Register your phone book: Create an account and start saving
-            contacts directly on the site.
+            <MdAccountBox className={css.itemIcon} size={30} />
+            <span className={css.listaccent}>Register your phone book: </span>
+            Create an account and start saving contacts directly on the site.
           </li>
           <li>
-            <MdAddBox className={css.itemIcon} />
-            Add, edit, and delete contacts: Easily add new entries, edit
-            existing ones, or delete unnecessary contacts.
+            <MdAddBox className={css.itemIcon} size={30} />
+            <span className={css.listaccent}>
+              Add, edit, and delete contacts:{" "}
+            </span>
+            Easily add new entries, edit existing ones, or delete unnecessary
+            contacts.
           </li>
           <li>
-            <BsFillFilterSquareFill className={css.itemIcon} />
-            Search and filter contacts: Quickly find the information you need
-            using the search and filter features.
+            <BsFilterSquareFill className={css.itemIcon} size={23} />
+            <span className={css.listaccent}>Search and filter contacts: </span>
+            Quickly find the information you need using the search and filter
+            features.
           </li>
           <li>
-            Store all data securely: All contacts are stored in one place and
-            are accessible at any time after logging into your account.
+            <BsFillSave2Fill className={css.itemIcon} size={22} />
+            <span className={css.listaccent}>
+              Store all data securely:{" "}
+            </span>{" "}
+            All contacts are stored in one place and are accessible at any time
+            after logging into your account.
           </li>
         </ul>
       </div>

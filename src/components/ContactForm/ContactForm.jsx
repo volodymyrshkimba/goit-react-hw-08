@@ -46,9 +46,15 @@ function ContactForm() {
       validationSchema={contactSchema}
     >
       <Form className={css.form}>
+        <p className={css.title}>Add Contact</p>
         <div className={css.inputWrapper}>
           <label htmlFor={userNameId}>Name</label>
-          <Field type="text" name="name" id={userNameId}></Field>
+          <Field
+            type="text"
+            name="name"
+            id={userNameId}
+            placeholder="Jonh Doe"
+          />
           <ErrorMessage
             className={css.errorMessage}
             name="name"
@@ -57,7 +63,12 @@ function ContactForm() {
         </div>
         <div className={css.inputWrapper}>
           <label htmlFor={userTelId}>Number</label>
-          <Field type="tel" name="number" id={userTelId}></Field>
+          <Field
+            type="tel"
+            name="number"
+            id={userTelId}
+            placeholder="+XXX (XX) XXX-XXXX"
+          />
           <ErrorMessage
             className={css.errorMessage}
             name="number"

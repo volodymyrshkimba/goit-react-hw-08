@@ -1,9 +1,35 @@
 .searchWrapper {
+  max-width: 350px;
   margin-bottom: 20px;
-  color: #ffffff;
+  border: 5px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 20px 20px;
 }
 
 .search {
-  width: 300px;
   height: 30px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  outline: none;
+  transition: all 150ms ease-in-out;
+  padding-left: 10px;
+}
+
+.search:hover {
+  border-color: #ffffff;
+}
+
+.search:focus {
+  outline: 1px solid #ffffff;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 35px;
+  font-weight: bold;
+  color: #808080;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }

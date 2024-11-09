@@ -14,13 +14,14 @@ function SearchBox() {
   };
   return (
     <div className={css.searchWrapper}>
-      <p>Find contacts by name or number</p>
+      <p className={css.title}>Find contact</p>
       <input
         className={css.search}
         type="text"
         name="search"
         value={filter}
         onChange={handleChange}
+        placeholder="name or phone"
       />
     </div>
   );

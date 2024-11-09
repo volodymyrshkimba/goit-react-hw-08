@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { IoMdCheckmark, IoMdClose } from "react-icons/io";
 import * as Yup from "yup";
+import clsx from "clsx";
 
 import { FaPhone } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
@@ -46,7 +48,7 @@ const EditForm = ({ contact }) => {
     >
       <Form className={css.form}>
         <div>
-          <p>
+          <div className={css.inputWrapper}>
             <IoPerson />
             <Field type="text" name="name" placeholder="enter name" />
             <ErrorMessage
@@ -54,8 +56,8 @@ const EditForm = ({ contact }) => {
               name="name"
               component="span"
             />
-          </p>
-          <p>
+          </div>
+          <div className={css.inputWrapper}>
             <FaPhone />
             <Field type="text" name="number" placeholder="enter number" />
             <ErrorMessage
@@ -63,18 +65,18 @@ const EditForm = ({ contact }) => {
               name="number"
               component="span"
             />
-          </p>
+          </div>
         </div>
 
-        <button className={css.button} type="submit">
-          Confirm
+        <button className={clsx(css.button, css.confirmBtn)} type="submit">
+          <IoMdCheckmark className={css.buttonIcon} />
         </button>
         <button
-          className={css.button}
+          className={clsx(css.button, css.closeBtn)}
           type="button"
           onClick={handleDiscardClick}
         >
-          Discard
+          <IoMdClose className={css.buttonIcon} />
         </button>
       </Form>
     </Formik>

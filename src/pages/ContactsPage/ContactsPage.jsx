@@ -21,13 +21,19 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={css.pageWrapper}>
       <Toaster />
-      <h1 className={css.title}>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      {loading && <div className={css.loader}>LOADING...</div>}
-      {!error ? <ContactList /> : <div>ERROR</div>}
+      <p className={css.title}>Phonebook</p>
+      <div className={css.mainContentWrapper}>
+        <div className={css.leftSide}>
+          <ContactForm />
+          <SearchBox />
+        </div>
+        <div className={css.rightSide}>
+          {loading && <div className={css.loader}>LOADING...</div>}
+          {!error ? <ContactList /> : <div>ERROR</div>}
+        </div>
+      </div>
     </div>
   );
 };

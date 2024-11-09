@@ -1,7 +1,8 @@
 .form {
   width: 400px;
-  padding: 5px 10px;
-  border: 1px solid #ffffff;
+  height: 86px;
+  padding: 15px 20px;
+  border: 1px solid #6c83db;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
@@ -10,14 +11,41 @@
 }
 
 .button {
-  padding: 5px 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form p {
+.confirmBtn {
+  background-color: #a8d5ba;
+}
+
+.closeBtn {
+  background-color: #f7c6c7;
+}
+
+.buttonIcon {
+  width: 100%;
+  height: 100%;
+}
+
+.form .inputWrapper {
   display: flex;
   align-items: center;
   gap: 5px;
   position: relative;
+  font-size: 18px;
+}
+
+.form input {
+  border: 1px solid #6879bf;
+  background-color: transparent;
+  margin-bottom: 1px;
+  color: #ffffff;
 }
 
 .errorMessage {

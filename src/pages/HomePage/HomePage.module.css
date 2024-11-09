@@ -6,6 +6,10 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  background-image: url("../../../home-bg.png");
+  background-repeat: no-repeat;
+  background-position: bottom 100px left 450px;
+  background-size: 850px 540px;
 }
 
 .title {
@@ -28,16 +32,18 @@
   max-width: 500px;
   letter-spacing: 2px;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 120px;
+  margin-bottom: 200px;
 }
 .list {
   color: #ffffff;
   display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 .list li {
   padding: 20px;
+  width: calc(100% / 4 - 20px);
   border: 1px solid #357abd;
   border-radius: 10px;
   letter-spacing: 1px;
@@ -50,6 +56,9 @@
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
+}
+
+.listaccent {
+  color: #357abd;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
 }

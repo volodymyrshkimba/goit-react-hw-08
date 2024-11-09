@@ -60,11 +60,11 @@ function Contact({ contact }) {
         <div className={css.contact}>
           <div>
             <p>
-              <IoPerson />
+              <IoPerson className={css.icon} />
               {contact.name}
             </p>
             <p>
-              <FaPhone />
+              <FaPhone className={css.icon} />
               {contact.number}
             </p>
           </div>
