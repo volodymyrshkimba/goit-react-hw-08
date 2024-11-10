@@ -1,5 +1,7 @@
 .pageWrapper {
   padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .container {
@@ -34,6 +36,7 @@
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 200px;
 }
+
 .list {
   color: #ffffff;
   display: flex;
@@ -61,4 +64,31 @@
 .listaccent {
   color: #357abd;
   text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    background-position: bottom 150px left 350px;
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .container {
+    background-image: url("../../../home-bg-dark.png");
+    background-position: bottom 350px center;
+    background-size: 850px 540px;
+  }
+  .list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .list li {
+    width: 280px;
+  }
+  .title {
+    margin-bottom: 40px;
+  }
+  .descr {
+    margin-bottom: 100px;
+  }
 }

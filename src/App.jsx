@@ -5,6 +5,10 @@ import { Route, Routes } from "react-router-dom";
 import { selectisRefreshing } from "./redux/auth/selectors";
 
 import Layout from "./components/Layout/Layout";
+import Loader from "./components/Loader/Loader";
+
+import css from "./App.module.css";
+
 import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { refreshUser } from "./redux/auth/operations";
@@ -27,7 +31,9 @@ function App() {
   return (
     <>
       {isRefreshing ? (
-        <p>Refreshing...</p>
+        <div className={css.loader}>
+          <Loader w={200} h={200} />
+        </div>
       ) : (
         <Layout>
           <Routes>

@@ -1,21 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
+import clsx from "clsx";
 
 import { FaPhone } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
 import { MdDeleteOutline } from "react-icons/md";
+import { FiEdit3 } from "react-icons/fi";
 
 import EditForm from "../EditForm/EditForm";
 
 import css from "./Contact.module.css";
 
 import { deleteContact } from "../../redux/contacts/operations";
-import { isUpdatingContact } from "../../redux/contacts/slice";
-import { selectisUpdating } from "../../redux/contacts/selectors";
+import { setUpdatingContact } from "../../redux/contacts/slice";
+import { selectCurrentUpdating } from "../../redux/contacts/selectors";
 
 function Contact({ contact }) {
   const dispatch = useDispatch();
-  const updatingContact = useSelector(selectisUpdating);
+  const currentUpdatingContact = useSelector(selectCurrentUpdating);
 
   const handleDeleteClick = () => {
     toast(
@@ -49,13 +51,14 @@ function Contact({ contact }) {
   };
 
   const handleUpdateClick = () => {
-    dispatch(isUpdatingContact(contact));
+    dispatch(setUpdatingContact(contact));
   };
 
   return (
     <div>
-      {updatingContact !== null && updatingContact.id === contact.id ? (
-        <EditForm contact={contact} />
+      {currentUpdatingContact !== null &&
+      currentUpdatingContact.id === contact.id ? (
+        <EditForm />
       ) : (
         <div className={css.contact}>
           <div>
@@ -70,18 +73,18 @@ function Contact({ contact }) {
           </div>
           <div className={css.btnWrapper}>
             <button
-              className={css.button}
+              className={clsx(css.button, css.editBtn)}
               type="button"
               onClick={handleUpdateClick}
             >
-              Edit
+              <FiEdit3 className={css.buttonIcon} />
             </button>
             <button
-              className={css.button}
+              className={clsx(css.button, css.deleteBtn)}
               type="button"
               onClick={handleDeleteClick}
             >
-              Delete
+              <MdDeleteOutline className={css.buttonIcon} />
             </button>
           </div>
         </div>

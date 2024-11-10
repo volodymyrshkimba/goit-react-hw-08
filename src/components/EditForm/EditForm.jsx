@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { IoMdCheckmark, IoMdClose } from "react-icons/io";
 import * as Yup from "yup";
@@ -11,26 +11,31 @@ import css from "./EditFrom.module.css";
 
 import { updateContact } from "../../redux/contacts/operations";
 import { discardUpdating } from "../../redux/contacts/slice";
+import { selectCurrentUpdating } from "../../redux/contacts/selectors";
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
-    .max(50, "Too Long!")
+    .max(20, "Too Long!")
     .required("Required"),
   number: Yup.string()
     .min(3, "Too Short!")
-    .max(50, "Too Long!")
+    .max(20, "Too Long!")
     .required("Required"),
 });
 
-const EditForm = ({ contact }) => {
+const EditForm = () => {
   const dispatch = useDispatch();
+  const currentUpdatingContact = useSelector(selectCurrentUpdating);
 
   const handleSubmit = (values) => {
-    if (values.name === contact.name || values.number === contact.number) {
+    if (
+      currentUpdatingContact.name === values.name &&
+      currentUpdatingContact.number === values.number
+    ) {
       return;
     }
-    dispatch(updateContact({ ...contact, ...values }));
+    dispatch(updateContact({ ...currentUpdatingContact, ...values }));
   };
 
   const handleDiscardClick = () => {
@@ -40,8 +45,8 @@ const EditForm = ({ contact }) => {
   return (
     <Formik
       initialValues={{
-        name: "",
-        number: "",
+        name: currentUpdatingContact.name,
+        number: currentUpdatingContact.number,
       }}
       onSubmit={handleSubmit}
       validationSchema={contactSchema}

@@ -1,8 +1,7 @@
 .loader {
-  top: -30px;
+  top: -60px;
   left: 0;
   position: absolute;
-  color: #ffffff;
 }
 
 .pageWrapper {
@@ -22,13 +21,25 @@
 .mainContentWrapper {
   display: flex;
   gap: 50px;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .leftSide {
-  width: 350px;
+  min-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .rightSide {
   max-width: 900px;
   position: relative;
+}
+
+@media screen and (max-width: 815px) {
+  .mainContentWrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
 }

@@ -20,20 +20,20 @@ const slice = createSlice({
   name: "contacts",
   initialState: {
     items: [],
-    isUpdating: null,
+    currentUpdatingContact: null,
     loading: false,
     error: null,
   },
   reducers: {
     resetContacts: (state) => {
       state.items = [];
-      state.isUpdating = null;
+      state.currentUpdatingContact = null;
     },
-    isUpdatingContact: (state, action) => {
-      state.isUpdating = action.payload;
+    setUpdatingContact: (state, action) => {
+      state.currentUpdatingContact = action.payload;
     },
     discardUpdating: (state) => {
-      state.isUpdating = null;
+      state.currentUpdatingContact = null;
     },
   },
 
@@ -67,7 +67,7 @@ const slice = createSlice({
       .addCase(updateContact.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        state.isUpdating = null;
+        state.currentUpdatingContact = null;
         const index = state.items.findIndex(
           (item) => item.id === action.payload.id
         );
@@ -79,5 +79,5 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { resetContacts, isUpdatingContact, discardUpdating } =
+export const { resetContacts, setUpdatingContact, discardUpdating } =
   slice.actions;

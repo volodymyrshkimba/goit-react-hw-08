@@ -54,3 +54,12 @@
   right: 5px;
   font-size: 14px;
 }
+
+@media screen and (max-width: 400px) {
+  .form {
+    width: 300px;
+  }
+  .form input {
+    width: 150px;
+  }
+}

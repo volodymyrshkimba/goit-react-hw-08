@@ -13,11 +13,11 @@ import toast from "react-hot-toast";
 const contactSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
-    .max(50, "Too Long!")
+    .max(20, "Too Long!")
     .required("Required"),
   number: Yup.string()
     .min(3, "Too Short!")
-    .max(50, "Too Long!")
+    .max(20, "Too Long!")
     .required("Required"),
 });
 

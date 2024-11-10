@@ -7,6 +7,7 @@ import { fetchContacts } from "../../redux/contacts/operations";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import ContactList from "../../components/ContactList/ContactList";
+import Loader from "../../components/Loader/Loader";
 
 import css from "./ContactsPage.module.css";
 import { Toaster } from "react-hot-toast";
@@ -30,7 +31,12 @@ const ContactsPage = () => {
           <SearchBox />
         </div>
         <div className={css.rightSide}>
-          {loading && <div className={css.loader}>LOADING...</div>}
+          {loading && (
+            <div className={css.loader}>
+              <Loader w={60} h={60} />
+            </div>
+          )}
+
           {!error ? <ContactList /> : <div>ERROR</div>}
         </div>
       </div>

@@ -3,3 +3,9 @@
   flex-wrap: wrap;
   gap: 5px;
 }
+
+@media screen and (max-width: 815px) {
+  .contactList {
+    justify-content: center;
+  }
+}

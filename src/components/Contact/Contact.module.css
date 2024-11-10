@@ -10,7 +10,27 @@
 }
 
 .button {
-  padding: 5px 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editBtn {
+  background-color: #d5cfa8;
+  font-size: 30px;
+}
+
+.deleteBtn {
+  background-color: #f7c6c7;
+}
+
+.buttonIcon {
+  width: 100%;
+  height: 100%;
 }
 
 .contact p {
@@ -27,4 +47,10 @@
 
 .icon {
   color: #6c83db;
+}
+
+@media screen and (max-width: 400px) {
+  .contact {
+    width: 300px;
+  }
 }
