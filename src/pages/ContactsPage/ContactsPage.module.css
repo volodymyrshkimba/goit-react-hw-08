@@ -21,15 +21,12 @@
 .mainContentWrapper {
   display: flex;
   gap: 50px;
-  justify-content: center;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 .leftSide {
   min-width: 350px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .rightSide {
@@ -40,6 +37,11 @@
 @media screen and (max-width: 815px) {
   .mainContentWrapper {
     flex-direction: column;
+    justify-content: center;
     gap: 30px;
+  }
+  .leftSide {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
