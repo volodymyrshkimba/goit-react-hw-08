@@ -28,7 +28,7 @@ function Contact({ contact }) {
           </p>
           <button
             onClick={() => {
-              dispatch(deleteContact(contact.id)).then(() => {
+              dispatch(deleteContact(contact._id)).then(() => {
                 toast.success("Successfully deleted!", {
                   icon: <MdDeleteOutline size={30} />,
                   position: "top-right",
@@ -57,7 +57,7 @@ function Contact({ contact }) {
   return (
     <div>
       {currentUpdatingContact !== null &&
-      currentUpdatingContact.id === contact.id ? (
+      currentUpdatingContact._id === contact._id ? (
         <EditForm />
       ) : (
         <div className={css.contact}>
