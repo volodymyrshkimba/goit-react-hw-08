@@ -1,8 +1,40 @@
-# React + Vite
+# myContacts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Full-Stack application for managing personal contacts. Users can register, log in, and perform CRUD operations (create, read, update, delete) on their contact list. The app is built using **React** for the front-end and **Node.js** with **Express** for the back-end.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User registration and authentication
+- Add, edit, delete, and filter for contacts
+- State management with **Redux**
+- API integration for back-end communication
+- Responsive design for better user experience
+
+## Back-End Hosting Note
+
+The back-end of this application is deployed on **Render.com** using a free plan. As a result:
+- The app may take longer to respond during the first request due to server cold start.
+- Subsequent requests will have improved performance.
+
+## Tech Stack
+
+### Front-End:
+- React
+- Redux
+- CSS/SCSS
+
+### Back-End:
+- Node.js
+- Express
+- MongoDB (for database)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/volodymyrshkimba/goit-react-hw-08.git
+2. cd goit-react-hw-08
+
+3. npm install
+
+4. npm start
