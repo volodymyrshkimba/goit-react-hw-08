@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://connections-api.goit.global/";
+axios.defaults.baseURL = "https://mycontacts-p148.onrender.com";
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
@@ -43,7 +43,7 @@ export const updateContact = createAsyncThunk(
   "contacts/updateContact",
   async (contact, thunkAPI) => {
     try {
-      const response = await axios.patch(`/contacts/${contact.id}`, {
+      const response = await axios.patch(`/contacts/${contact._id}`, {
         name: contact.name,
         number: contact.number,
       });

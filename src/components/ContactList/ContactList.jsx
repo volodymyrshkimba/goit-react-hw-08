@@ -13,7 +13,7 @@ function ContactList() {
     <ul className={css.contactList}>
       {visibleContacts.map((contact) => {
         return (
-          <li key={contact.id}>
+          <li key={contact._id}>
             <Contact contact={contact} />
           </li>
         );
