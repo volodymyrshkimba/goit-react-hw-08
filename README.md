@@ -21,12 +21,12 @@ The back-end of this application is deployed on **Render.com** using a free plan
 ### Front-End:
 - React
 - Redux
-- CSS/SCSS
+- CSS
 
 ### Back-End [Code link](https://github.com/volodymyrshkimba/node-blended/tree/mycontacts):
 - Node.js
 - Express
-- MongoDB (for database)
+- MongoDB
 
 ## Installation
 
