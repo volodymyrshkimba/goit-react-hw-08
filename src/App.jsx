@@ -31,9 +31,15 @@ function App() {
   return (
     <>
       {isRefreshing ? (
-        <div className={css.loader}>
-          <Loader w={200} h={200} />
-        </div>
+        <>
+          <div className={css.loader}>
+            <Loader w={200} h={200} />
+          </div>
+          <p className={css.loaderDescr}>
+            If the loading takes longer than expected, please be patient — it’s
+            running on a free server and may need extra time to wake up.
+          </p>
+        </>
       ) : (
         <Layout>
           <Routes>
