@@ -1,4 +1,4 @@
-# myContacts
+![](https://github.com/volodymyrshkimba/goit-react-hw-08/blob/main/public/icon-contact.png?raw=true)# myContacts
 
 This is a Full-Stack application for managing personal contacts. Users can register, log in, and perform CRUD operations (create, read, update, delete) on their contact list. The app is built using **React** for the front-end and **Node.js** with **Express** for the back-end.
 
